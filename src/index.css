@@ -8,50 +8,65 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Agricultural green theme with earthy tones */
+    --background: 120 20% 98%;
+    --foreground: 120 10% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 120 30% 97%;
+    --card-foreground: 120 10% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 120 30% 97%;
+    --popover-foreground: 120 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Rich agricultural green */
+    --primary: 120 60% 25%;
+    --primary-foreground: 120 20% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft earth tone */
+    --secondary: 45 25% 88%;
+    --secondary-foreground: 120 15% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 120 15% 92%;
+    --muted-foreground: 120 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Fresh green accent */
+    --accent: 110 40% 85%;
+    --accent-foreground: 120 30% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 120 20% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 120 20% 85%;
+    --input: 120 20% 90%;
+    --ring: 120 60% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
+    /* Custom agricultural colors */
+    --forest-green: 140 50% 30%;
+    --leaf-green: 100 40% 45%;
+    --earth-brown: 30 25% 40%;
+    --soil-dark: 25 20% 25%;
+    --wheat-gold: 45 80% 65%;
+    
+    /* Status colors */
+    --status-verified: 120 60% 45%;
+    --status-pending: 45 90% 60%;
+    --status-warning: 15 90% 55%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120 60% 25%), hsl(100 50% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(120 40% 20%), hsl(100 35% 30%));
+    --gradient-card: linear-gradient(145deg, hsl(120 30% 97%), hsl(110 25% 95%));
+
+    /* Sidebar colors - keeping existing */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 

@@ -61,7 +61,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom agricultural colors
+				'forest-green': 'hsl(var(--forest-green))',
+				'leaf-green': 'hsl(var(--leaf-green))',
+				'earth-brown': 'hsl(var(--earth-brown))',
+				'soil-dark': 'hsl(var(--soil-dark))',
+				'wheat-gold': 'hsl(var(--wheat-gold))',
+				'status-verified': 'hsl(var(--status-verified))',
+				'status-pending': 'hsl(var(--status-pending))',
+				'status-warning': 'hsl(var(--status-warning))'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
