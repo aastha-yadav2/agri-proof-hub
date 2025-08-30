@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { BarChart3, Users, Droplets, Leaf, CheckCircle, Clock, AlertCircle } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 interface FarmerData {
   id: string;
@@ -12,6 +16,18 @@ interface FarmerData {
 }
 
 const Dashboard = () => {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut();
+    toast({
+      title: "Logged Out",
+      description: "You have been successfully logged out",
+    });
+    navigate('/login');
+  };
+
   // Mock data - in real app this would come from API/database
   const mockFarmers: FarmerData[] = [
     {
@@ -96,14 +112,29 @@ const Dashboard = () => {
   const pendingCount = mockFarmers.filter(f => f.status === 'pending').length;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/10">
       <Navigation currentPath="/dashboard" />
       
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-center mb-8 text-foreground">
-            NABARD MRV Dashboard
-          </h1>
+          {/* Header with User Info */}
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h1 className="text-4xl font-bold text-forest-green mb-2">
+                NABARD MRV Dashboard
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Welcome {user?.email}
+              </p>
+            </div>
+            <Button 
+              onClick={handleLogout}
+              variant="outline"
+              className="border-forest-green text-forest-green hover:bg-forest-green hover:text-white"
+            >
+              Logout
+            </Button>
+          </div>
 
           {/* Key Metrics Summary */}
           <div className="grid md:grid-cols-4 gap-6 mb-8">
