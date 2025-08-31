@@ -54,6 +54,25 @@ AgriMRV-Lite/
 │
 └── README.md
 ```
+## 🏗️ System Architecture
+
+The system follows a **frontend + backend + database** model:
+
+- **Frontend (Lovable / React + TS)**
+  - Provides user interface for login, dashboard, farmer entry
+- **Supabase Auth**
+  - Manages signup/login
+- **Supabase Database**
+  - Stores farmer records
+  - Applies Row-Level Security (RLS) so each user only sees their own data
+- **Future Extensions**
+  - IoT sensors
+  - Satellite data APIs
+  - Blockchain proof-of-practice
+
+![AgriMRV Architecture](<img width="1536" height="1024" alt="AgriMRV System Architecture Diagram" src="https://github.com/user-attachments/assets/e016d8a5-0549-484c-82d1-80f7a0f563ee" />
+)
+
 ## ⚡ Getting Started
 1️⃣ Clone or Open in Lovable
 
