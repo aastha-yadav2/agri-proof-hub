@@ -116,6 +116,11 @@ Try:
 
 /farmers → Add new farmer record
 ```
+## 🔐 Authentication (Supabase)
+
+- In Supabase → Auth → Providers, enable Email (password).
+
+- In Supabase → Auth → URL Configuration, add your Lovable preview domain to Redirect URLs (e.g. https://id-preview--xxxx.lovable.app).
 ## 🧑‍💻 Example Flow
 
 - Register as a user
@@ -148,3 +153,16 @@ Hackathon project by [GreenByte]
 Postgres Database (farmer records)
 
 Row-Level Security (RLS) – each user only sees their own data
+## 🤝 Contributing
+
+Fork → Create feature branch
+
+Make changes in Lovable UI or code sections
+
+Keep code TypeScript-strict and RLS-safe
+
+Open PR with screenshots / Loom of the flow
+
+## 📜 License
+
+MIT © 2025 AgriMRV-Lite Team
