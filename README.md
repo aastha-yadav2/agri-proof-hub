@@ -1,73 +1,150 @@
-# Welcome to your Lovable project
+# 🌱 AgriMRV-Lite
 
-## Project info
+Low-cost Monitoring, Reporting & Verification (MRV) for Smallholder Agriculture
 
-**URL**: https://lovable.dev/projects/c1ba5e32-e78b-454b-b785-7cca257b671e
+AgriMRV-Lite is a beginner-friendly prototype that demonstrates an end-to-end MRV (Monitoring, Reporting & Verification) flow for smallholder farmers.
+It is built with Lovable (React + TypeScript) for the frontend and Supabase for authentication, database, and secure data storage.
 
-## How can I edit this code?
+The goal is to create a scalable, cost-effective, and easy-to-use MRV system that empowers smallholder farmers while giving financial institutions & NABARD a transparent, verifiable way to measure climate-smart practices.
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+🔐 Authentication – Secure signup/login with Supabase Auth
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c1ba5e32-e78b-454b-b785-7cca257b671e) and start prompting.
+👨‍🌾 Farmer Management – Add farmers, track crops & locations
 
-Changes made via Lovable will be committed automatically to this repo.
+📊 Dashboard – Each user sees only their own farmers via Row Level Security (RLS)
 
-**Use your preferred IDE**
+📷 Offline-ready Inputs (Future) – Voice, images, video clips from farmers
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🛰️ Satellite + IoT-lite Integration (Future) – Combine free satellite data & low-cost village sensors
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🔗 Blockchain Proof-of-Practice (Future) – Tamper-proof verification for carbon credits
 
-Follow these steps:
+## 🛠️ Tech Stack
+Frontend
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Lovable.dev → Low-code React builder
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+React.js + TypeScript
 
-# Step 3: Install the necessary dependencies.
-npm i
+TailwindCSS + shadcn/ui for UI components
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+Backend
+
+Supabase
+
+Auth (user login/signup)
+
+
+## 📂 Project Structure
+```bash
+AgriMRV-Lite/
+│── frontend/ (Lovable React + TS)
+│   ├── pages/
+│   │   ├── login.tsx
+│   │   ├── register.tsx
+│   │   ├── dashboard.tsx
+│   │   └── farmers.tsx
+│   └── components/ (UI components)
+│
+│── supabase/ (Database + Auth)
+│   ├── farmers.sql   (Schema for farmers table)
+│   └── policies.sql  (RLS rules)
+│
+└── README.md
 ```
+## ⚡ Getting Started
+1️⃣ Clone or Open in Lovable
 
-**Edit a file directly in GitHub**
+Create a new Lovable project
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Paste the frontend prompts (auth + farmers dashboard)
 
-**Use GitHub Codespaces**
+## 2️⃣ Setup Supabase
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Create a Supabase project at https://supabase.com/dashboard
 
-## What technologies are used for this project?
+Go to Settings → API Keys → Copy Project URL and anon key
 
-This project is built with:
+Add them in Lovable → Project Settings → Environment Variables
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+NEXT_PUBLIC_SUPABASE_URL=your-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 
-## How can I deploy this project?
+3️⃣ Database Schema
 
-Simply open [Lovable](https://lovable.dev/projects/c1ba5e32-e78b-454b-b785-7cca257b671e) and click on Share -> Publish.
+Run this SQL in Supabase → SQL Editor:
+```bash
+create table if not exists farmers (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  location text,
+  crop text,
+  created_at timestamp with time zone default now(),
+  user_id uuid references auth.users (id) on delete cascade
+);
 
-## Can I connect a custom domain to my Lovable project?
+alter table farmers enable row level security;
 
-Yes, you can!
+create policy "Users can view their own farmers"
+on farmers for select
+using (auth.uid() = user_id);
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+create policy "Users can insert their own farmers"
+on farmers for insert
+with check (auth.uid() = user_id);
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+create policy "Users can update their own farmers"
+on farmers for update
+using (auth.uid() = user_id);
+
+create policy "Users can delete their own farmers"
+on farmers for delete
+using (auth.uid() = user_id);
+```
+## 4️⃣ Run Frontend
+
+In Lovable, just Deploy & Preview.
+Try:
+```bash
+/register → Create account
+
+/login → Login
+
+/dashboard → See your farmers
+
+/farmers → Add new farmer record
+```
+## 🧑‍💻 Example Flow
+
+Register as a user
+
+Add a farmer (Name: Ramesh, Crop: Wheat, Location: Bihar)
+
+Record is saved in Supabase → linked to your user ID
+
+Dashboard shows only your farmers
+
+## 📌 Roadmap (Future Enhancements)
+
+🌍 Offline-first mobile app (voice + photo submissions)
+
+🛰️ Satellite data fusion (Sentinel/ISRO APIs)
+
+⛅ Low-cost IoT sensors at cluster level
+
+🔗 Blockchain ledger for tamper-proof MRV logs
+
+📈 Analytics Dashboard with climate-smart indicators
+
+## 🤝 Team
+
+Hackathon project by [GreenByte]
+
+## Built for NABARD Hackathon → GFF 2025
+
+## ✨ With AgriMRV-Lite, we show that even a simple, low-cost system can pave the way for climate-smart, inclusive agriculture monitoring.
+Postgres Database (farmer records)
+
+Row-Level Security (RLS) – each user only sees their own data
