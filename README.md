@@ -7,6 +7,8 @@ It is built with Lovable (React + TypeScript) for the frontend and Supabase for 
 
 The goal is to create a scalable, cost-effective, and easy-to-use MRV system that empowers smallholder farmers while giving financial institutions & NABARD a transparent, verifiable way to measure climate-smart practices.
 
+**Live Demo:** [https://lovable.dev/projects/c1ba5e32-e78b-454b-b785-7cca257b671e](https://lovable.dev/projects/c1ba5e32-e78b-454b-b785-7cca257b671e)  
+
 ## 🚀 Features
 
 - 🔐 Authentication – Secure signup/login with Supabase Auth
