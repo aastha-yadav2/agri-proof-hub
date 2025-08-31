@@ -9,32 +9,32 @@ The goal is to create a scalable, cost-effective, and easy-to-use MRV system tha
 
 ## 🚀 Features
 
-🔐 Authentication – Secure signup/login with Supabase Auth
+- 🔐 Authentication – Secure signup/login with Supabase Auth
 
-👨‍🌾 Farmer Management – Add farmers, track crops & locations
+- 👨‍🌾 Farmer Management – Add farmers, track crops & locations
 
-📊 Dashboard – Each user sees only their own farmers via Row Level Security (RLS)
+- 📊 Dashboard – Each user sees only their own farmers via Row Level Security (RLS)
 
-📷 Offline-ready Inputs (Future) – Voice, images, video clips from farmers
+- 📷 Offline-ready Inputs (Future) – Voice, images, video clips from farmers
 
-🛰️ Satellite + IoT-lite Integration (Future) – Combine free satellite data & low-cost village sensors
+- 🛰️ Satellite + IoT-lite Integration (Future) – Combine free satellite data & low-cost village sensors
 
 🔗 Blockchain Proof-of-Practice (Future) – Tamper-proof verification for carbon credits
 
 ## 🛠️ Tech Stack
-Frontend
+- Frontend
 
-Lovable.dev → Low-code React builder
+- Lovable.dev → Low-code React builder
 
-React.js + TypeScript
+- React.js + TypeScript
 
-TailwindCSS + shadcn/ui for UI components
+- TailwindCSS + shadcn/ui for UI components
 
-Backend
+- Backend
 
-Supabase
+- Supabase
 
-Auth (user login/signup)
+- Auth (user login/signup)
 
 
 ## 📂 Project Structure
@@ -63,15 +63,15 @@ Paste the frontend prompts (auth + farmers dashboard)
 
 ## 2️⃣ Setup Supabase
 
-Create a Supabase project at https://supabase.com/dashboard
+- Create a Supabase project at https://supabase.com/dashboard
 
-Go to Settings → API Keys → Copy Project URL and anon key
+- Go to Settings → API Keys → Copy Project URL and anon key
 
-Add them in Lovable → Project Settings → Environment Variables
-
+- Add them in Lovable → Project Settings → Environment Variables
+```bash
 NEXT_PUBLIC_SUPABASE_URL=your-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-
+```
 3️⃣ Database Schema
 
 Run this SQL in Supabase → SQL Editor:
@@ -118,13 +118,13 @@ Try:
 ```
 ## 🧑‍💻 Example Flow
 
-Register as a user
+- Register as a user
 
-Add a farmer (Name: Ramesh, Crop: Wheat, Location: Bihar)
+- Add a farmer (Name: Ramesh, Crop: Wheat, Location: Bihar)
 
-Record is saved in Supabase → linked to your user ID
+- Record is saved in Supabase → linked to your user ID
 
-Dashboard shows only your farmers
+- Dashboard shows only your farmers
 
 ## 📌 Roadmap (Future Enhancements)
 
